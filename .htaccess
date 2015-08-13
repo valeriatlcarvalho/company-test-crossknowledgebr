@@ -1,0 +1,12 @@
+
+RewriteEngine On
+#Ativa o suporte à reescrita
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+#Não aplica a condição para arquivos
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+#Não aplica a condição para diretórios
+
+RewriteRule ^(.*)$ index.php?cod=$1
+#Regra de reescrita onde qualquer string (.*) após a pasta, onde estiver o .htaccess, será interpretado por index.php passado na variável cod 
