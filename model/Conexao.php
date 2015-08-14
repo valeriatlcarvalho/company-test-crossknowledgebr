@@ -5,7 +5,6 @@ class Conexao
     protected $_host;
     protected $_usuario;
     protected $_senha;
-    protected $_porta;
     protected $_banco;
     
     function __construct()
@@ -13,7 +12,6 @@ class Conexao
         #Configura os dados de conexão com banco de dados aqui
         $this->_host    = 'localhost';
         $this->_banco   = 'cross';
-        $this->_porta   = '3306';
         $this->_usuario = 'root';
         $this->_senha   = '';
     }
@@ -32,7 +30,7 @@ class Conexao
             else
             {
                 #Se o banco ainda não existir é criado
-                $bd = mysql_query("CREATE DATABASE IF NOT EXISTS `{$this->banco}`;");
+                $bd = mysql_query("CREATE DATABASE IF NOT EXISTS `{$this->_banco}`;");
                 if($bd)
                 {
                     #Seleciona o banco de dados
