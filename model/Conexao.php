@@ -7,22 +7,22 @@ class Conexao
     protected $_senha;
     protected $_banco;
     
-    function __construct()
+    function Conexao()
     {
         #Configura os dados de conexão com banco de dados aqui
-        $this->_host    = 'localhost';
-        $this->_banco   = 'cross';
-        $this->_usuario = 'root';
-        $this->_senha   = '';
+        $this->set('host', 'localhost');
+        $this->set('banco', 'cross');
+        $this->set('usuario', 'root');
+        $this->set('senha', '');
     }
     
     public function conectaBanco()
     {
-        $conectou = mysql_connect($this->_host, $this->_usuario, $this->_senha);
+        $conectou = mysqli_connect($this->_host, $this->_usuario, $this->_senha);
         if($conectou)
         {
             #Seleciona banco de dados
-            $selecionouBd = mysql_select_db($this->_banco, $conectou);
+            $selecionouBd = mysqli_select_db($this->get('banco'), $conectou);
             if($selecionouBd)
             {
                 return true;
@@ -30,11 +30,11 @@ class Conexao
             else
             {
                 #Se o banco ainda não existir é criado
-                $bd = mysql_query("CREATE DATABASE IF NOT EXISTS `{$this->_banco}`;");
+                $bd = mysqli_query($conectou, "CREATE DATABASE IF NOT EXISTS {$this->get('banco')}; USE {$this->get('banco')}");
                 if($bd)
                 {
                     #Seleciona o banco de dados
-                    return mysql_select_db($this->_banco, $conectou);
+                    return mysqli_select_db($this->get('banco'), $conectou);
                 }
                 else
                 {
@@ -46,6 +46,30 @@ class Conexao
         {
             return false;
         }
+    }
+    
+    public function fechaConexao($conexao = null)
+    {
+        if(!empty($conexao))
+        {
+            return mysqli_close($conexao);
+        }
+        else
+        {
+            return mysqli_close();
+        }
+    }
+    
+    public function get($var)
+    {
+        $var = '_'.$var;
+        return $this->$var;
+    }
+    
+    public function set($var, $val)
+    {
+        $var = '_'.$var;
+        return $this->$var = $val;
     }
     
 }

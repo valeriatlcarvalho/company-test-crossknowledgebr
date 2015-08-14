@@ -1,39 +1,39 @@
-<form method="post" action="<?= DIR."/ajax/cadastro.php" ?>">
+<form id="cadastro" method="POST">
 	<input type="hidden" name="id" id="id"/>
 	
 	<div>
-		<label>Nome</label>
 		<input type="text" name="nome" id="nome" maxlength="35"/>
+		<label for="nome">Nome</label>
 	</div>
 	
 	<div>
-		<label>Sobrenome</label>
 		<input type="text" name="sobrenome" id="sobrenome" maxlength="70"/>
+		<label for="sobrenome">Sobrenome</label>
 	</div>
 	
 	<div id="endereco">
 		<div>
-			<label>Logradouro</label>
 			<input type="text" name="logradouro" id="logradouro" maxlength="180"/>
+			<label for="logradouro">Logradouro</label>
 		</div>
 		
 		<div>
-			<label>Bairro</label>
 			<input type="text" name="bairro" id="bairro" maxlength="150"/>
+			<label for="bairro">Bairro</label>
 		</div>
 		
 		<div>
-			<label>Cidade</label>
 			<input type="text" name="cidade" id="cidade" maxlength="150"/>
+			<label for="cidade">Cidade</label>
 		</div>
 		
 		<div>
-			<label>Estado</label>
 			<input type="text" name="estado" id="estado" maxlength="2"/>
+			<label for="estado">Estado</label>
 		</div>
 	</div>
 	<div>
-		<button type="button" name="acao" value="salvar">Salvar</button>
+		<button type="submit" id="acao" name="acao" value="salvar">Salvar</button>
 		<button type="reset">Cancelar</button>
 	</div>
 </form>

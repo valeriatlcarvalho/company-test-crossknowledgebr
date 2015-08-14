@@ -1,25 +1,25 @@
 <?php
-require DIR."/model/Conexao.php";
-require DIR."/model/Model.php";
+#require "../model/Conexao.php";
+#require "../model/Model.php";
 
 class Controller
 {
 	function __construction()
 	{
 		$con = new Conexao;
-		$model = new Model;
 		$con->conectaBanco();
 	}
-
-	public function cadastrarNovo()
-	{
-		
-	}
-
+    
+    public function cadastrar($tabela, array $dados)
+    {
+        $model = new Model;
+        return $model->cadastrar($tabela, $dados);
+    }
+    
 	public function listarTudo($tb)
 	{
-		$registros = $model->selecionaTudo($tb);
-		var_dump($registros);
+		$model = new Model;
+		return $model->selecionaTudo($tb);
 	}
 
 }
