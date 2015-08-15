@@ -3,19 +3,17 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>Pessoas</title>
-
 	<!-- jQuery -->
 	<script src="js/jquery-2.1.4.js"></script>
-
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 
 <?php
-		#require "constantes.php";
-        #require "./controller/Controller.php";
-		require "./view/formulario.php";
+		require_once "./autoload.php";
+		require_once "./config.php";
+		require_once "./view/formulario.php";
 ?>
         <table id="listagem">
             <thead>

@@ -1,5 +1,7 @@
 <?php
 
+$Conexao = new mysqli('localhost', 'root', '', 'cross');
+
 class Conexao
 {
     protected $_host;

@@ -1,7 +1,6 @@
 <?php
 
     require "constantes.php";
-    require DIR."/model/Conexao.php";
     require DIR."/model/Model.php";
     
 	# Ao executar irá criar o banco e a tabela pessoas (se não existirem)
