@@ -1,22 +1,9 @@
 <?php
 
-    #require '../constantes.php';
-    require "../controller/Controller.php";
-    require "../model/Model.php";
-
+	include_once __DIR__."/../controller/Cross_Controller.php";
 
     $post = $_POST;
     unset($_POST);
-
-    #print_r( json_encode($post) ) ;
-
-    $cadastro = new Controller;
-    $id = $cadastro->cadastrar('pessoas', $post);
-    if($id)
-    {
-        require "../view/listagem.php";
-    }
-    else
-    {
-        echo "fail";
-    }
+	
+	$exec = Cross_Controller::cadastro('pessoas', $post);
+    print_r( json_encode($exec) );

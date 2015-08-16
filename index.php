@@ -7,69 +7,28 @@
 	<script src="js/jquery-2.1.4.js"></script>
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
 
 <?php
-		require_once "./autoload.php";
-		require_once "./config.php";
-		require_once "./view/formulario.php";
+    include_once __DIR__."/autoload.php";
+    include_once __DIR__."/config.php";
 ?>
-        <table id="listagem">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Logradouro</th>
-                    <th>Bairro</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+</head>
+<body>
+    <div>
+        <div>
+<?php
+		include_once __DIR__."/view/formulario.php";
+?>
+        </div>
 
-    <script>
-        var listagem = null;
+        <div>
+<?php
+        include_once __DIR__."/view/tabela.php";
+?>
+        </div>
+    </div>
     
-    
-        $('#cadastro').submit(function() {
-            $.ajax({
-                method: 'POST',
-                url: './ajax/cadastro.php',
-                data: $('#cadastro').serialize(),
-                dataType: 'json',
-                success: function(retorno){
-                    console.log(retorno);
-                    $('tbody').html(retorno);
-                },
-                error: function(err){
-                    console.log(err);
-                },
-                done: function(){
-                   $.ajax({
-                        method: 'POST',
-                        url: './view/listagem.php',
-                        success: function(data){
-                            console.log(data);
-                            $('#listagem tbody').append(data);
-                        },
-                        error: function(err){
-                            console.log(err);
-                        }
-                    });
-                }
-            });
-
-            // Apaga os dados do formulário :: retorna ao estado inicial
-            $(this)[0].reset();
-            return false;
-        });
-
-    </script>
+    <script src="./js/script.js"></script>
     
 </body>
 </html>
