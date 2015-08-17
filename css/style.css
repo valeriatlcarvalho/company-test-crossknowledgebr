@@ -24,6 +24,11 @@ div{
   	padding: 10px;
 }
 
+.container > .box:first-child{
+    background-color: #EEEEEE;
+  padding: 5px 15px;
+}
+
 .box > form > div > input,
 .box > form > div > div > input {
 	border: 1px solid #CCCCCC;
