@@ -16,6 +16,9 @@
 <body>
     <div class="container">
         <div class="box">
+            <h2>Cadastro de pessoas</h2>
+        </div>
+        <div class="box">
 <?php
 		include_once __DIR__."/view/formulario.php";
 ?>

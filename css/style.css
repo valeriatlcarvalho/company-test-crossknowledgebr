@@ -18,15 +18,15 @@ div{
 
 .container .box{
 	margin-bottom: 20px;
-  	background-color: #ffffff;
-  	border: 1px solid #cccccc;
+  	background-color: #FFFFFF;
+  	border: 1px solid #CCCCCC;
   	border-radius: 5px;
   	padding: 10px;
 }
 
 .box > form > div > input,
 .box > form > div > div > input {
-	border: 1px solid #cccccc;
+	border: 1px solid #CCCCCC;
   	border-radius: 5px;
   	padding: 5px;
   	color: #888888;
@@ -62,20 +62,20 @@ div{
   	border-style: solid;
   	border-color: transparent;
   	border-radius: 3px;
-  	background-color: #aaaaaa;
-  	color: #ffffff;
+  	background-color: #AAAAAA;
+  	color: #FFFFFF;
   	display: block;
   	margin-bottom: 10px;
 }
 
 .group-button > .salvar {
-    background-color: #00cc00;
-  	color: #ffffff;
+    background-color: #00CC00;
+  	color: #FFFFFF;
 }
 
 .group-button > .editar {
-    background-color: #0066ff;
-  	color: #ffffff;
+    background-color: #0066FF;
+  	color: #FFFFFF;
 }
 
 .box > form{
@@ -94,26 +94,30 @@ table {
 }
 
 table > thead > tr > th {
-	border-bottom: 2px solid #0066ff;
-	color: #0066ff;
-	line-height: 30px;
+    border-bottom: 2px solid #0066FF;
+    color: #6699FF;
+    line-height: 30px;
 }
 
 table > tbody > tr > td {
-	border-bottom: 1px solid #003366;
-  	border-top: none;
-  	border-left: none;
-  	border-right: none;
-	color: #003366;
-	line-height: 30px;
+    border-bottom: 1px solid #003366;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #003366;
+    line-height: 30px;
 }
 
 table > tbody > tr:hover {
-  	background-color: #DDDDEB;
+  	background-color: #F6F5F1;
 }
 
 table > tbody > tr.editando{
-	background-color: #EEEEEE;
+	background-color: #DDDDEB;
+}
+
+table > tbody > tr.salvo{
+    background-color: #DDDDEB;
 }
 
 table > tbody > tr > td.editar > a, 
@@ -129,14 +133,14 @@ table > tbody > tr > td.editar > a{
 	background-position: center center;
 }
 
+table > tbody > tr:hover > td.editar > a{
+    background-image: url('../img/edit01.png');
+}
+
 table > tbody > tr > td.excluir > a{
 	background-image: url('../img/trash02.png');
 	background-repeat: no-repeat;
 	background-position: center center;
-}
-
-table > tbody > tr:hover > td.editar > a{
-	background-image: url('../img/edit01.png');
 }
 
 table > tbody > tr:hover > td.excluir > a{
