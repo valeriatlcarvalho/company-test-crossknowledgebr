@@ -46,6 +46,18 @@ $('#submit').on( 'click', function(){
 
         $(this).val('salvar').text('Salvar');
         $(this).removeClass('editar').addClass('salvar');
+        row.removeClass('editando');
+        /* 
+            Animação de cor de fundo para registro editado
+        */
+        row.css({
+            'background-color' : '#CCFFCC', // #CCFFCC - verde claro
+            '-webkit-trasition' : '10s'
+        });
+        row.css({
+            'background-color' : '#FFFFFF',
+            '-webkit-trasition' : '15s'
+        });
     }
 
     // Apaga os dados do formulário :: retorna ao estado inicial
@@ -65,10 +77,8 @@ lista = function(){
             var tbody = $('tbody');
             $.each(data.pessoas, function(k, v){
                 
-                tbody.append('<tr class="row-'+v.id+'" style="border-bottom: 2px solid #cccccc; height: 30px;"> <td>'+v.id+'</td> <td class="nome">'+v.nome+'</td> <td class="sobrenome">'+v.sobrenome+'</td> <td class="logradouro">'+v.logradouro+'</td> <td class="bairro">'+v.bairro+'</td> <td class="cidade">'+v.cidade+'</td> <td class="estado" style="width: 50px; text-align: center;">'+v.estado+'</td> <td class="editar"><a href="#editar='+v.id+'" onclick="edita('+v.id+')" style="padding: 0px 5px; display: block;"><img src="img/edit01-25x25.png" /></a></td> <td class="excluir"><a href="#excluir='+v.id+'" onclick="exclui('+v.id+')" style="padding: 0px 5px; display: block;"><img src="img/trash02-25x25.png" /></a></td> </tr>');
+                tbody.append('<tr class="row-'+v.id+'"> <td>'+v.id+'</td> <td class="nome">'+v.nome+'</td> <td class="sobrenome">'+v.sobrenome+'</td> <td class="logradouro">'+v.logradouro+'</td> <td class="bairro">'+v.bairro+'</td> <td class="cidade">'+v.cidade+'</td> <td class="estado">'+v.estado+'</td> <td class="editar"><a href="#editar='+v.id+'" onclick="edita('+v.id+')"></a></td> <td class="excluir"><a href="#excluir='+v.id+'" onclick="exclui('+v.id+')"></a></td> </tr>');
             });
-
-            tbody.append('<tr>'+data+'</tr>');
         },
         error: function(err){
             console.log('ajax: erro listagem');
@@ -78,6 +88,10 @@ lista = function(){
 
 edita = function(id) {
     var row = $('tr.row-'+id);
+    
+    $('tr').removeClass('editando');
+    row.addClass('editando');
+
     var pessoa = {};
     pessoa.nome        = row.children('td.nome').text();
     pessoa.sobrenome   = row.children('td.sobrenome').text();

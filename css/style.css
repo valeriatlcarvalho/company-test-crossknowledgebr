@@ -8,12 +8,6 @@ div{
 	display: block;
 }
 
-table {
-    margin-bottom: 20px;
-    width: 100%;
-	color: #555555;
-}
-
 .container{
 	width: 90%;
 	margin-right: auto;
@@ -91,4 +85,60 @@ table {
 .box > form > .group-button {
     float: right;
     width: 100px;
+}
+
+table {
+    margin-bottom: 20px;
+    width: 100%;
+	color: #555555;
+}
+
+table > thead > tr > th {
+	border-bottom: 2px solid #0066ff;
+	color: #0066ff;
+	line-height: 30px;
+}
+
+table > tbody > tr > td {
+	border-bottom: 1px solid #003366;
+  	border-top: none;
+  	border-left: none;
+  	border-right: none;
+	color: #003366;
+	line-height: 30px;
+}
+
+table > tbody > tr:hover {
+  	background-color: #DDDDEB;
+}
+
+table > tbody > tr.editando{
+	background-color: #EEEEEE;
+}
+
+table > tbody > tr > td.editar > a, 
+table > tbody > tr > td.excluir > a{
+	display: block;
+	widows: 30px;
+	height: 30px;
+}
+
+table > tbody > tr > td.editar > a{
+	background-image: url('../img/edit02.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+table > tbody > tr > td.excluir > a{
+	background-image: url('../img/trash02.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+table > tbody > tr:hover > td.editar > a{
+	background-image: url('../img/edit01.png');
+}
+
+table > tbody > tr:hover > td.excluir > a{
+	background-image: url('../img/trash01.png');
 }
