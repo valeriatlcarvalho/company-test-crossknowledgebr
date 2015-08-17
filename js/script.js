@@ -45,6 +45,7 @@ $('#submit').on( 'click', function(){
         });
 
         $(this).val('salvar').text('Salvar');
+        $(this).removeClass('editar').addClass('salvar');
     }
 
     // Apaga os dados do formulário :: retorna ao estado inicial
@@ -64,7 +65,7 @@ lista = function(){
             var tbody = $('tbody');
             $.each(data.pessoas, function(k, v){
                 
-                tbody.append('<tr class="row-'+v.id+'"> <td class="nome">'+v.nome+'</td> <td class="sobrenome">'+v.sobrenome+'</td> <td class="logradouro">'+v.logradouro+'</td> <td class="bairro">'+v.bairro+'</td> <td class="cidade">'+v.cidade+'</td> <td class="estado">'+v.estado+'</td> <td class="editar"><a href="#editar='+v.id+'" onclick="edita('+v.id+')">Editar</a></td> <td class="excluir"><a href="#excluir='+v.id+'" onclick="exclui('+v.id+')">Excluir</a></td> </tr>');
+                tbody.append('<tr class="row-'+v.id+'" style="border-bottom: 2px solid #cccccc; height: 30px;"> <td>'+v.id+'</td> <td class="nome">'+v.nome+'</td> <td class="sobrenome">'+v.sobrenome+'</td> <td class="logradouro">'+v.logradouro+'</td> <td class="bairro">'+v.bairro+'</td> <td class="cidade">'+v.cidade+'</td> <td class="estado" style="width: 50px; text-align: center;">'+v.estado+'</td> <td class="editar"><a href="#editar='+v.id+'" onclick="edita('+v.id+')" style="padding: 0px 5px; display: block;"><img src="img/edit01-25x25.png" /></a></td> <td class="excluir"><a href="#excluir='+v.id+'" onclick="exclui('+v.id+')" style="padding: 0px 5px; display: block;"><img src="img/trash02-25x25.png" /></a></td> </tr>');
             });
 
             tbody.append('<tr>'+data+'</tr>');
@@ -94,7 +95,7 @@ edita = function(id) {
     edit.bairro     = campo.children('input[name=bairro]').val(pessoa.bairro);
     edit.cidade     = campo.children('input[name=cidade]').val(pessoa.cidade);
     edit.estado     = campo.children('input[name=estado]').val(pessoa.estado);
-    edit.acao       = campo.children('button[name=acao]').val('editar').text('Editar');
+    edit.acao       = campo.children('button[name=acao]').val('editar').text('Editar').removeClass('salvar').addClass('editar');
     
     console.log(id);
 };

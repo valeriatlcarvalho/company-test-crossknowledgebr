@@ -14,14 +14,14 @@
 ?>
 </head>
 <body>
-    <div>
-        <div>
+    <div class="container">
+        <div class="box">
 <?php
 		include_once __DIR__."/view/formulario.php";
 ?>
         </div>
 
-        <div>
+        <div class="box">
 <?php
         include_once __DIR__."/view/tabela.php";
 ?>
