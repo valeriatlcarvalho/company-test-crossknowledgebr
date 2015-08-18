@@ -27,7 +27,7 @@ div{
 /* Cabeçalho */
 
 .container > .box:first-child{
-    background-color: #EEEEEE;
+    color: #666666;
     padding: 5px 15px;
 }
 
@@ -124,7 +124,7 @@ table > tbody > tr:hover {
 }
 
 table > tbody > tr.editando{
-	background-color: #DDDDEB;
+	background-color: #E1EEF7;
 }
 
 table > tbody > tr.salvo{

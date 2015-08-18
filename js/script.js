@@ -50,6 +50,7 @@ $('#submit').on( 'click', function(){
 
         $(this).val('salvar').text('Salvar');
         $(this).removeClass('editar').addClass('salvar');
+        row.removeClass('editando');
     }
 
     // Apaga os dados do formulário :: retorna ao estado inicial
@@ -81,7 +82,9 @@ lista = function(){
 }
 
 edita = function(id) {
+    $('tr.editando').removeClass('editando');
     var row = $('tr.row-'+id);
+        row.addClass('editando');
     
     // Cria um objeto com todas as informações da pessoa seleciona (a partir da linha da tabela)
     var pessoa = {};
@@ -92,7 +95,7 @@ edita = function(id) {
     pessoa.cidade      = row.children('td.cidade').text();
     pessoa.estado      = row.children('td.estado').text();
 
-    // Cria
+    // Preenche os campos do formulário com os dados da linha selecionada para edição
     var campo = $('#formulario div');
     
     $('#formulario').children('input[name=id]').val(id);
