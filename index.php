@@ -10,7 +10,6 @@
 
 <?php
     include_once __DIR__."/autoload.php";
-    include_once __DIR__."/config.php";
 ?>
 </head>
 <body>
@@ -18,6 +17,7 @@
         <div class="box">
             <h2>Cadastro de pessoas</h2>
         </div>
+
         <div class="box">
 <?php
 		include_once __DIR__."/view/formulario.php";
@@ -28,6 +28,11 @@
 <?php
         include_once __DIR__."/view/tabela.php";
 ?>
+        </div>
+
+        <div class="box rodape">
+            <p>Disponível no <a href="https://github.com/valeriatlucht/cross">GitHub</a></p>
+            <p>Desenvolvido por <span>Valéria Lucht</span></p>
         </div>
     </div>
     
